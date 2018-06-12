@@ -2,11 +2,12 @@
 import Router from 'vue-router'
 // import WebView from '@/components/WebView'
 import Home from '@/components/Home'
-import Detail from '@/components/Detail'
+import ExternalVideoDetail from '@/components/app/video/detail/ExternalVideoDetail'
+import LocalVideoDetail from '@/components/app/video/detail/LocalVideoDetail'
 
 Vue.use(Router)
-
 module.exports = new Router({
+    // mode: 'history',
     routes: [
         // {
         //     path: '/',
@@ -19,9 +20,14 @@ module.exports = new Router({
             component: Home
         },
         {
-            path: '/detail:videoId',
-            name: 'Detail',
-            component: Detail
+            path: 'external/detail:videoId',
+            name: 'External Video Detail',
+            component: ExternalVideoDetail
+        },
+        {
+            path: 'local/detail:videoId',
+            name: 'Local Video Detail',
+            component: LocalVideoDetail
         }
     ]
 })

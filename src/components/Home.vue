@@ -10,7 +10,7 @@
 
 <script>
     import Nav from './Nav'
-    import List from './List'
+    import List from './VideoList'
     import Slider from './Slider'
     export default {
         name: 'home',

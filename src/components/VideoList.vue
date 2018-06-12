@@ -4,13 +4,24 @@
             <template slot="results" slot-scope="res">
                 <cell v-for="video in chunkedHomeVideo(res.results.slice(0,8))" :key="video.id">
                     <div class="column" v-for="obj in video" :key="obj.id">
-                        <router-link :to="{ name: 'Detail', params: { videoId: obj.id } }">
-                            <img :src="obj.pic" class="video-image">
-                            <div class="meta">
-                                <text class="text">{{obj.name}}</text>
-                                <text class="text">{{obj.created}}</text>
-                            </div>
-                        </router-link>
+                        <template v-if="obj.is_local">
+                            <router-link :to="{ name: 'Local Video Detail', params: { videoId: obj.id } }">
+                                <img :src="obj.pic" class="video-image">
+                                <div class="meta">
+                                    <text class="text">{{obj.name}}</text>
+                                    <text class="text">{{obj.created}}</text>
+                                </div>
+                            </router-link>
+                        </template>
+                        <template v-else>
+                            <router-link :to="{ name: 'External Video Detail', params: { videoId: obj.id } }">
+                                <img :src="obj.pic" class="video-image">
+                                <div class="meta">
+                                    <text class="text">{{obj.name}}</text>
+                                    <text class="text">{{obj.created}}</text>
+                                </div>
+                            </router-link>
+                        </template>
                     </div>
                 </cell>
             </template>
