@@ -57,8 +57,8 @@
     }
 </style>
 <script>
-    import Collection from './Collection'
-    import Helper from '../mixins/Helper'
+    import Collection from '../../Collection/Collection'
+    import Helper from '../../../mixins/Helper'
 
     export default {
         name: 'home',

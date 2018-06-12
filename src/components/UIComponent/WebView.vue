@@ -9,7 +9,7 @@
 <script>
     const webview = weex.requireModule('webview');
     import Nav from './Nav'
-    import util from '../util'
+    import util from '../../util'
 
     export default {
         data() {

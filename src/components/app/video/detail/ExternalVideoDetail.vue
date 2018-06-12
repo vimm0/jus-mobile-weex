@@ -56,7 +56,7 @@
 </script>
 <style>
     div.video-meta {
-        margin: 1rem auto auto 1rem;
+        margin: 1rem auto auto 0.5rem;
     }
 
     p.p__release-date {
@@ -68,7 +68,7 @@
     }
 
     p.p__views {
-        font-size: 0.6rem;
+        font-size: 0.3rem;
     }
 
     p.p__description {

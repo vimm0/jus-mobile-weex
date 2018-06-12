@@ -5,9 +5,19 @@ import Home from '@/components/Home'
 import ExternalVideoDetail from '@/components/app/video/detail/ExternalVideoDetail'
 import LocalVideoDetail from '@/components/app/video/detail/LocalVideoDetail'
 
+const scrollBehavior = function (to, from, savedPosition) {
+    let position = {x: 0, y: 0}
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(position)
+        }, 10)
+    })
+}
+
 Vue.use(Router)
 module.exports = new Router({
     // mode: 'history',
+    scrollBehavior,
     routes: [
         // {
         //     path: '/',

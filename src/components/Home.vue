@@ -9,9 +9,9 @@
 </template>
 
 <script>
-    import Nav from './Nav'
-    import List from './VideoList'
-    import Slider from './Slider'
+    import Nav from './UIComponent/Nav'
+    import List from './app/video/VideoList'
+    import Slider from './UIComponent/Slider'
     export default {
         name: 'home',
         components: {

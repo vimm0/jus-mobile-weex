@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Nav from './components/Nav.vue'
+    import Nav from './components/UIComponent/Nav.vue'
     import axios from 'axios'
     import config from '../configs/config'
     import Vue from 'vue'
