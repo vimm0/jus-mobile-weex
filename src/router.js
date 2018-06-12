@@ -1,6 +1,6 @@
 /*global Vue*/
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import WebView from '@/components/WebView'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ module.exports = new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'WebView',
+      component: WebView
     }
   ]
 })
