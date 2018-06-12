@@ -1,90 +1,50 @@
-<!--<template>-->
-    <!--<list>-->
-        <!--<cell v-for="char in lists" :key="char">-->
-            <!--<div class="panel">-->
-                <!--<text class="text">{{char}}</text>-->
-            <!--</div>-->
-        <!--</cell>-->
-    <!--</list>-->
-<!--</template>-->
-
-<!--<script>-->
-<!--export default {-->
-<!--data () {-->
-<!--return {-->
-<!--lists: [-->
-<!--'A', 'B', 'C', 'D',-->
-<!--'E', 'F', 'G'-->
-<!--]-->
-<!--}-->
-<!--}-->
-<!--}-->
-<!--</script>-->
-
-<!--<style scoped>-->
-<!--.panel {-->
-<!--width: 600px;-->
-<!--height: 320px;-->
-<!--margin-left: 75px;-->
-<!--margin-top: 35px;-->
-<!--margin-bottom: 35px;-->
-<!--flex-direction: column;-->
-<!--justify-content: center;-->
-<!--border-width: 4px;-->
-<!--border-style: solid;-->
-<!--border-color: rgb(79, 192, 141);-->
-<!--background-color: rgba(79, 192, 141, 0.2);-->
-<!--}-->
-<!--.text {-->
-<!--font-size: 160px;-->
-<!--text-align: center;-->
-<!--color: #41B883;-->
-<!--}-->
-<!--</style>-->
 <template>
-    <video-list :endPoint="this.$options.endpoint">
-        <template slot="results" slot-scope="res">
-            <div class="columns home-container__div__chunked-video"
-                 v-for="video in res.results.slice(0,8)" :key="video.id">
-                <div class="column is-one-quarter a__video-card" v-for="obj in video" :key="obj.id"
-                     v-if="obj.is_completed">
-                    <template v-if="obj.is_local">
-                        <router-link :to="{ name: 'Local Video Detail', params: { videoId: obj.id } }"
-                                     class="a__video-card">
-                            <figure class="image">
-                                <img :src="obj.pic" class="video-image">
-                                <span class="span__duration">{{ obj.duration }}</span>
-                            </figure>
-                            <div class="m-1 video-meta">
-                                <div class="div__inner-video-meta">
-                                    <div class="has-text-weight-bold is-size-6">{{ obj.name }}</div>
-                                    <span class="is-size-7">{{ obj.created }}</span>
-                                </div>
+    <list>
+        <video-list :endPoint="this.$options.endpoint">
+            <template slot="results" slot-scope="res">
+                <cell v-for="video in chunkedHomeVideo(res.results.slice(0,8))" :key="video.id">
+                    <div class="column" v-for="obj in video" :key="obj.id">
+                        <router-link :to="{ name: 'Detail', params: { videoId: obj.id } }">
+                            <img :src="obj.pic" class="video-image">
+                            <div class="meta">
+                                <text class="text">{{obj.name}}</text>
+                                <text class="text">{{obj.created}}</text>
                             </div>
                         </router-link>
-                    </template>
-                    <template v-else>
-                        <router-link :to="{ name: 'External Video Detail', params: { videoId: obj.id } }"
-                                     class="a__video-card">
-                            <figure class="image">
-                                <img :src="obj.pic" class="video-image">
-                                <span class="span__duration">{{ obj.duration }}</span>
-                            </figure>
-                            <div class="m-1 video-meta">
-                                <div class="div__inner-video-meta">
-                                    <div class="has-text-weight-bold is-size-6 is-size-7-touch is-size-7-mobile">
-                                        {{ obj.name }}
-                                    </div>
-                                    <span class="is-size-7 is-size-7-touch is-size-7-mobile">{{ obj.created }}</span>
-                                </div>
-                            </div>
-                        </router-link>
-                    </template>
-                </div>
-            </div>
-        </template>
-    </video-list>
+                    </div>
+                </cell>
+            </template>
+        </video-list>
+    </list>
 </template>
+
+<style scoped>
+    .panel {
+        border-color: rgb(79, 192, 141);
+        background-color: rgba(79, 192, 141, 0.2);
+    }
+
+    .image .video-image {
+        max-width: 100%;
+        width: auto;
+        height: 320px;
+        margin-right: 0.7rem;
+        margin-left: 0.7rem;
+        margin-top: 35px;
+        margin-bottom: 35px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .meta {
+        margin-left: 0.7rem;
+        margin-right: 0.7rem;
+    }
+
+    .text {
+        font-size: 0.4rem;
+    }
+</style>
 <script>
     import Collection from './Collection'
     import Helper from '../mixins/Helper'
@@ -97,6 +57,7 @@
                 hideButton: true
             }
         },
+        mixins: [Helper],
         components: {
             'video-list': Collection
         },
