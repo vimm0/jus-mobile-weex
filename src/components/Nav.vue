@@ -16,7 +16,7 @@
       return {
         activeTab: 0,
         tabs: [{
-          title: 'name',
+          title: 'Home',
           icon: '//gw.alicdn.com/tfs/TB19YESOVXXXXaNaXXXXXXXXXXX-45-45.png'
         }, {
           title: 'name',
@@ -28,7 +28,7 @@
           title: 'name',
           icon: '//img.alicdn.com/tfs/TB1D4RzQFXXXXcoXpXXXXXXXXXX-45-45.png'
         }, {
-          title: 'name',
+          title: 'LogOut',
           icon: '//gw.alicdn.com/tfs/TB1N1.6OVXXXXXqaXXXXXXXXXXX-45-45.png'
         }]
       }
