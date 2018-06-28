@@ -30,12 +30,12 @@ module.exports = new Router({
             component: Home
         },
         {
-            path: 'external/detail:videoId',
+            path: ':slugId',
             name: 'External Video Detail',
             component: ExternalVideoDetail
         },
         {
-            path: 'local/detail:videoId',
+            path: ':slugId',
             name: 'Local Video Detail',
             component: LocalVideoDetail
         }

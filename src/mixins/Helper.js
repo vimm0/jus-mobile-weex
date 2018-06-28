@@ -72,9 +72,9 @@ export default {
       return array
     },
     sliderChunked(objs) {
-      let filterVideoId = this.$route.params.videoId
+      let filterSlugId= this.$route.params.slugId
       let filtered = objs.filter(function (el) {
-        return el.id !== Number(filterVideoId)
+        return el.id !== Number(filterSlugId)
       })
       return this.shuffleArray(filtered.slice(0, 3))
     },

@@ -49,8 +49,8 @@
         },
         methods: {
             getVideo() {
-                if (this.$route.params.videoId) {
-                    global.axios.get('local/video/' + this.$route.params.videoId).then(({data}) => {
+                if (this.$route.params.slugId) {
+                    global.axios.get('local/video/' + this.$route.params.slugId).then(({data}) => {
                         // console.log(data)
                         global.Vue.set(this.$data, 'obj', data)
                         // console.log(this.obj)
