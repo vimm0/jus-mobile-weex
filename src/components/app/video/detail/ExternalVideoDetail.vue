@@ -45,7 +45,7 @@
                 if (this.$route.params.slugId) {
                     global.axios.get('external/video/' + this.$route.params.slugId)
                         .then(({data}) => {
-                            // console.log(data)
+                            console.log(data)
                             global.Vue.set(this.$data, 'obj', data)
                             this.videoId = data.video_id
                         })
@@ -75,6 +75,7 @@
         overflow: hidden;
         white-space: pre-wrap;
         font-size: .2rem !important;
+        /* margin-left: -1rem; */
     }
 
     /*Youtube-iframe responsive container*/

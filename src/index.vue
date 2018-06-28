@@ -1,7 +1,8 @@
 <template>
     <div class="wrapper">
         <header>
-            <nav></nav>
+            <!-- <nav></nav> -->
+            <layout></layout>
         </header>
         <router-view/>
     </div>
@@ -9,6 +10,7 @@
 
 <script>
     import Nav from './components/UIComponent/Nav.vue'
+    import Layout from './components/app/Layout.vue'
     import axios from 'axios'
     import config from '../configs/config'
     import Vue from 'vue'
@@ -19,7 +21,8 @@
             return {}
         },
         components: {
-            'nav': Nav
+            'nav': Nav,
+            'layout': Layout
         },
         created() {
             axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN'
