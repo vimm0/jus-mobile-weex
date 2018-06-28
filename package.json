@@ -37,6 +37,7 @@
     "weex-vue-render": "^0.12.26"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.1",
     "babel-preset-stage-0": "^6.24.1",
