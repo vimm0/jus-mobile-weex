@@ -1,7 +1,6 @@
 <template>
     <div class="wrapper">
         <header style="background:#fff;">
-            <!-- <nav></nav> -->
             <layout></layout>
         </header>
         <router-view/>
@@ -9,7 +8,7 @@
 </template>
 
 <script>
-    import Nav from './components/UIComponent/Nav.vue'
+    // import Nav from './components/UIComponent/Nav.vue'
     import Layout from './components/app/Layout.vue'
     import axios from 'axios'
     import config from '../configs/config'
@@ -18,10 +17,12 @@
     export default {
         name: 'App',
         data() {
-            return {}
+            return {
+                view: ''
+            }
         },
         components: {
-            'nav': Nav,
+            // 'nav': Nav,
             'layout': Layout
         },
         created() {

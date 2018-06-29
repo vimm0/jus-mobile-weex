@@ -1,7 +1,12 @@
 <template>
   <div>
    <div class="navigation">
-      <wxc-icon class="nav-weex-icon" name="back" @wxcIconClicked="backIconClicked" style={color:red,fontSize:60px}></wxc-icon>
+      <template v-if="getRoute !== 'Home'">
+        <wxc-icon class="nav-weex-icon" name="back" @wxcIconClicked="backIconClicked" style={color:red,fontSize:60px}></wxc-icon>
+      </template>
+      <template v-if="getRoute">
+        <p class=" nav-route-name">{{ getRoute }}</p>             
+      </template>
       <p class="nav-home-icon" @click="userIconClicked"><i class="fas fa-user"></i></p>
    </div>
     <wxc-popup width="500"
@@ -9,33 +14,33 @@
                :show="isShow"
                @wxcPopupOverlayClicked="overlayClicked">
                  <div class="container">
-    <div class="demo">
-         <wxc-cell
-                title="PROFILE"
-                :has-arrow="true"
-                @wxcCellClicked="profileCellClicked"
-                :has-top-border="false">
-                </wxc-cell>
-      <wxc-cell
-                title="WATCHLIST"
-                :has-arrow="true"
-                @wxcCellClicked="watchListCellClicked"
-                spm="181.12312312.12312.d01"
-                :has-top-border="false"></wxc-cell>               
-        <wxc-cell title="CARD"
-                :has-arrow="true"
-                 @wxcCellClicked="cardCellClicked"
-                :has-top-border="true"></wxc-cell>
-      <wxc-cell title="SUBSCRIPITION"
-                :has-arrow="true"
-                @wxcCellClicked="subscriptionCellClicked"
-                :has-top-border="true"></wxc-cell>
-        <wxc-cell title="INVOICE"
-                  :has-arrow="true"
-                  @wxcCellClicked="invoiceCellClicked"
-                  :has-top-border="true">
-        </wxc-cell>
-    </div>
+              <div class="demo">
+                  <wxc-cell title="PROFILE"
+                            :has-arrow="true"
+                            @wxcCellClicked="profileCellClicked"
+                            :has-top-border="false">
+                  </wxc-cell>
+                  <wxc-cell title="WATCHLIST"
+                            :has-arrow="true"
+                            @wxcCellClicked="watchListCellClicked"
+                            :has-top-border="false">
+                  </wxc-cell>               
+                  <wxc-cell title="CARD"
+                            :has-arrow="true"
+                            @wxcCellClicked="cardCellClicked"
+                            :has-top-border="true">
+                  </wxc-cell>
+                  <wxc-cell title="SUBSCRIPITION"
+                            :has-arrow="true"
+                            @wxcCellClicked="subscriptionCellClicked"
+                            :has-top-border="true">
+                  </wxc-cell>
+                  <wxc-cell title="INVOICE"
+                            :has-arrow="true"
+                            @wxcCellClicked="invoiceCellClicked"
+                            :has-top-border="true">
+                  </wxc-cell>
+              </div>
   </div>
     </wxc-popup>
   </div>
@@ -47,8 +52,14 @@ import { WxcButton, WxcPopup, WxcIcon, WxcCell } from "weex-ui";
 module.exports = {
   components: { WxcButton, WxcPopup, WxcIcon, WxcCell },
   data: () => ({
-    isShow: false
+    isShow: false,
+    view: ""
   }),
+  computed: {
+    getRoute() {
+      return this.$route.name;
+    }
+  },
   methods: {
     backIconClicked() {
       this.$router.push({ path: "/" });
@@ -62,10 +73,10 @@ module.exports = {
     profileCellClicked(e) {
       this.$router.push({ name: "Profile" });
       this.isShow = false;
-      console.log(e);
     },
     watchListCellClicked() {
-      console.log("watchlist comming soon...");
+      this.$router.push({ name: "WatchList" });
+      this.isShow = false;
     },
     cardCellClicked() {
       this.$router.push({ name: "Card" });
@@ -91,18 +102,24 @@ svg:not(:root).svg-inline--fa {
   color: rgb(102, 102, 102);
   font-family: weexUiIconFont;
   font-size: 48px;
-  /* width: 1rem; */
   display: inline;
   margin-right: 4rem;
 }
 .navigation {
   display: inline;
 }
+p.nav-route-name {
+  padding-left: 3.5rem;
+  font-size: 0.7rem;
+  width: 1rem;
+}
 .weex-root p {
   display: inline;
-  margin-right: -3.69rem;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
+}
+.weex-root p.nav-home-icon {
+  margin-right: -3.69rem;
 }
 .nav-weex-icon {
   font-size: 48px;
@@ -110,7 +127,6 @@ svg:not(:root).svg-inline--fa {
   float: left;
 }
 .nav-home-icon {
-  padding-top: 0.3rem;
   float: right;
 }
 .fas {

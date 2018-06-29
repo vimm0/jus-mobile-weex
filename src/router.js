@@ -4,12 +4,14 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import ExternalVideoDetail from '@/components/app/video/detail/ExternalVideoDetail'
 import LocalVideoDetail from '@/components/app/video/detail/LocalVideoDetail'
+import WatchList from '@/components/app/video/feature/WatchList'
 import SignUp from '@/components/app/user/SignUp'
 import SignIn from '@/components/app/user/SignIn'
 import Profile from '@/components/app/user/Profile'
 import Card from '@/components/app/payment/Card'
 import Invoice from '@/components/app/payment/Invoice'
 import Subscription from '@/components/app/payment/Subscription'
+import Error from '@/components/UIComponent/Error'
 
 const scrollBehavior = function (to, from, savedPosition) {
     let position = { x: 0, y: 0 }
@@ -51,6 +53,11 @@ module.exports = new Router({
             component: LocalVideoDetail
         },
         {
+            path: '/watchlist',
+            name: 'WatchList',
+            component: WatchList
+        },
+        {
             path: '/card',
             name: 'Card',
             component: Card
@@ -69,6 +76,11 @@ module.exports = new Router({
             path: '/user/profile',
             name: 'Profile',
             component: Profile
+        },
+        {
+            path: '*',
+            name: 'Error',
+            component: Error
         }
     ]
 })

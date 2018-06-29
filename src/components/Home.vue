@@ -1,7 +1,5 @@
 <template>
     <div class="home">
-        <!--<p>Hello World</p>-->
-        <!--<slider></slider>-->
         <list></list>
     </div>
 </template>
