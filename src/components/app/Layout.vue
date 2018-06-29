@@ -2,7 +2,7 @@
   <div>
    <div class="navigation">
       <wxc-icon class="nav-weex-icon" name="back" @wxcIconClicked="backIconClicked" style={color:red,fontSize:60px}></wxc-icon>
-      <p class="nav-home" @click="userIconClicked"><i class="fas fa-user"></i></p>
+      <p class="nav-home-icon" @click="userIconClicked"><i class="fas fa-user"></i></p>
    </div>
     <wxc-popup width="500"
                pos="left"
@@ -13,33 +13,29 @@
          <wxc-cell
                 title="PROFILE"
                 :has-arrow="true"
-                link="https://h5.m.taobao.com/trip/home/index.html"
-                @wxcCellClicked="wxcCellClicked"
-                :has-top-border="false"></wxc-cell>
+                @wxcCellClicked="profileCellClicked"
+                :has-top-border="false">
+                </wxc-cell>
       <wxc-cell
                 title="WATCHLIST"
                 :has-arrow="true"
-                @wxcCellClicked="wxcCellClicked"
+                @wxcCellClicked="watchListCellClicked"
                 spm="181.12312312.12312.d01"
                 :has-top-border="false"></wxc-cell>               
-      <wxc-cell title="CARD"
+        <wxc-cell title="CARD"
                 :has-arrow="true"
+                 @wxcCellClicked="cardCellClicked"
                 :has-top-border="true"></wxc-cell>
       <wxc-cell title="SUBSCRIPITION"
                 :has-arrow="true"
+                @wxcCellClicked="subscriptionCellClicked"
                 :has-top-border="true"></wxc-cell>
-      <wxc-cell title="INVOICE"
-                :has-arrow="true"
-                :has-top-border="true"></wxc-cell>
+        <wxc-cell title="INVOICE"
+                  :has-arrow="true"
+                  @wxcCellClicked="invoiceCellClicked"
+                  :has-top-border="true">
+        </wxc-cell>
     </div>
-    <!-- <div class="demo">
-      <text class="demo-title">Custom slot</text>
-      <wxc-cell title="Title text"
-                :has-arrow="false"
-                :has-top-border="true">
-        <switch slot="value"></switch>
-      </wxc-cell>
-    </div> -->
   </div>
     </wxc-popup>
   </div>
@@ -47,7 +43,7 @@
 
 <script>
 import { WxcButton, WxcPopup, WxcIcon, WxcCell } from "weex-ui";
-// import WxcPopup from 'weex-ui/packages/wxc-popup';
+
 module.exports = {
   components: { WxcButton, WxcPopup, WxcIcon, WxcCell },
   data: () => ({
@@ -63,8 +59,25 @@ module.exports = {
     overlayClicked() {
       this.isShow = false;
     },
-    wxcCellClicked(e) {
+    profileCellClicked(e) {
+      this.$router.push({ name: "Profile" });
+      this.isShow = false;
       console.log(e);
+    },
+    watchListCellClicked() {
+      console.log("watchlist comming soon...");
+    },
+    cardCellClicked() {
+      this.$router.push({ name: "Card" });
+      this.isShow = false;
+    },
+    subscriptionCellClicked() {
+      this.$router.push({ name: "Subscription" });
+      this.isShow = false;
+    },
+    invoiceCellClicked() {
+      this.$router.push({ name: "Invoice" });
+      this.isShow = false;
     }
   }
 };
@@ -76,13 +89,29 @@ svg:not(:root).svg-inline--fa {
 .svg-inline--fa.fa-w-14 {
   font-size: 0.6rem;
   color: rgb(102, 102, 102);
+  font-family: weexUiIconFont;
+  font-size: 48px;
+  /* width: 1rem; */
+  display: inline;
+  margin-right: 4rem;
 }
 .navigation {
   display: inline;
 }
+.weex-root p {
+  display: inline;
+  margin-right: -3.69rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
 .nav-weex-icon {
-  margin: 0;
-  padding: 0;
+  font-size: 48px;
+  margin-right: 4rem;
+  float: left;
+}
+.nav-home-icon {
+  padding-top: 0.3rem;
+  float: right;
 }
 .fas {
   float: left;

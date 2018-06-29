@@ -6,6 +6,10 @@ import ExternalVideoDetail from '@/components/app/video/detail/ExternalVideoDeta
 import LocalVideoDetail from '@/components/app/video/detail/LocalVideoDetail'
 import SignUp from '@/components/app/user/SignUp'
 import SignIn from '@/components/app/user/SignIn'
+import Profile from '@/components/app/user/Profile'
+import Card from '@/components/app/payment/Card'
+import Invoice from '@/components/app/payment/Invoice'
+import Subscription from '@/components/app/payment/Subscription'
 
 const scrollBehavior = function (to, from, savedPosition) {
     let position = { x: 0, y: 0 }
@@ -45,6 +49,26 @@ module.exports = new Router({
             path: '/:slugId',
             name: 'Local Video Detail',
             component: LocalVideoDetail
+        },
+        {
+            path: '/card',
+            name: 'Card',
+            component: Card
+        },
+        {
+            path: '/subscription',
+            name: 'Subscription',
+            component: Subscription
+        },
+        {
+            path: '/invoice',
+            name: 'Invoice',
+            component: Invoice
+        },
+        {
+            path: '/user/profile',
+            name: 'Profile',
+            component: Profile
         }
     ]
 })

@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <header>
+        <header style="background:#fff;">
             <!-- <nav></nav> -->
             <layout></layout>
         </header>
@@ -33,10 +33,3 @@
         }
     }
 </script>
-
-<style scoped>
-    /*.wrapper {*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*}*/
-</style>
