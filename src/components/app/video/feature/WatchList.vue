@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p>watchlist</p>
         <p class="bookmark" align="right">
             <i class="fas fa-bookmark"></i>
         </p>
@@ -17,7 +16,7 @@ import { WxcButton, WxcPopup, WxcIcon, WxcCell } from "weex-ui";
 export default {
   name: "WatchList",
   components: {
-      WxcButton
+    WxcButton
   }
 };
 </script>
@@ -42,6 +41,6 @@ export default {
   height: 2rem;
 }
 .start-browsing {
-    left: 7%;
+  left: 7%;
 }
 </style>

@@ -37,7 +37,8 @@
     "vue-dplayer": "^0.0.10",
     "vue-router": "^3.0.1",
     "weex-ui": "^0.6.4",
-    "weex-vue-render": "^0.12.26"
+    "weex-vue-render": "^0.12.26",
+    "wxc-form": "0.0.6"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.1.0",
