@@ -40,6 +40,10 @@
                             @wxcCellClicked="invoiceCellClicked"
                             :has-top-border="true">
                   </wxc-cell>
+                  <wxc-cell title="SIGN OUT"
+                            @wxcCellClicked="signOutCellClicked"
+                            :has-top-border="true">
+                  </wxc-cell>
               </div>
   </div>
     </wxc-popup>
@@ -89,6 +93,11 @@ module.exports = {
     invoiceCellClicked() {
       this.$router.push({ name: "Invoice" });
       this.isShow = false;
+    },
+    signOutCellClicked() {
+      this.$store.dispatch("logout").then(() => {
+        this.$router.push("/");
+      });
     }
   }
 };

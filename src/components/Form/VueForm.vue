@@ -123,12 +123,12 @@ export default {
       }
       this.submit(verb, url)
         .then(data => {
-          // console.log(data)
-          let tab = 1
-          this.$store.dispatch('getSignUpStatus', [data, tab])
-        })
-        .catch((error) => {
-          this.$store.dispatch('getSignUpStatus', [error, tab])
+          console.log(data)
+        //   let tab = 1
+        //   this.$store.dispatch('getSignUpStatus', [data, tab])
+        // })
+        // .catch((error) => {
+        //   this.$store.dispatch('getSignUpStatus', [error, tab])
         })
     },
     post (url) {

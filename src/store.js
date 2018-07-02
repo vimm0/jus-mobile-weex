@@ -1,20 +1,9 @@
-/*global Vue*/
-
-/* weex initialized here, please do not move this line */
-const router = require('./router');
-const App = require('@/index.vue');
-
-import '../node_modules/vue-dplayer/dist/vue-dplayer.css'
-import fontawesome from '@fortawesome/fontawesome'
-import {
-  faUser
-} from '@fortawesome/fontawesome-free-solid'
 import Vuex from 'vuex'
+import Vue from 'vue'
 import axios from 'axios'
-import VueJWT from 'vuejs-jwt'
+import router from './router'
 
 Vue.use(Vuex)
-Vue.use(VueJWT)
 
 const store = new Vuex.Store({
   state: {
@@ -359,10 +348,3 @@ const store = new Vuex.Store({
 })
 
 export default store
-
-fontawesome.library.add(faUser)
-
-/* eslint-disable no-new */
-new Vue(Vue.util.extend({ el: '#root', router, store }, App));
-router.push('/');
-

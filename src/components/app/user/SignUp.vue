@@ -2,20 +2,20 @@
   <div class="signup">
     <vue-form :fields="fields" :action="endpoint()" @success="successCallback">
       <template slot="form-fields" slot-scope="form">
-            <text :type="form.errors.get('full_name') ? 'is-danger': null"
-            :message="form.errors.get('full_name')"></text>
-          <input type="text" placeholder="Full Name" :autofocus=true v-model="fields.full_name" class="input"/>
-           <text :type="form.errors.get('email') ? 'is-danger': null"
-        :message="form.errors.get('email')"></text>
-          <input type="email" placeholder="Email" :autofocus=true v-model="fields.email" class="input"/>
-        <text :type="form.errors.get('password') ? 'is-danger': null"
-        :message="form.errors.get('password')"></text>
+            <!-- <text :type="form.errors.get('full_name') ? 'is-danger': null"
+            :message="form.errors.get('full_name')"></text> -->
+          <input type="text" placeholder="Full Name" :autofocus=true v-model="fields.full_name" ref="kl" class="input"/>
+           <!-- <text :type="form.errors.get('email') ? 'is-danger': null"
+        :message="form.errors.get('email')"></text> -->
+          <input type="email" placeholder="Email" v-model="fields.email" class="input"/>
+        <!-- <text :type="form.errors.get('password') ? 'is-danger': null"
+        :message="form.errors.get('password')"></text> -->
           <input type="password" placeholder="Password" class="input" v-model="fields.password"/>
         <div class="form-button has-text-centered" slot="submit control">
-          <!-- <button >Sign Up</button> -->
-          <wxc-button text="Sign Up"
+          <button >Sign Up</button>
+          <!-- <wxc-button text="Sign Up"
               @wxcButtonClicked="wxcButtonClicked" style="text-align:center;margin: 0.25rem;">
-              </wxc-button>
+              </wxc-button> -->
         </div>
            <!-- <div class="" slot="submit control">
           <wxc-button text="Sign Up"
@@ -46,15 +46,16 @@ export default {
   mixins: [Form, Helper],
   endpoint: "users/create/",
   methods: {
-
-    // successCallback (data) {
-    //   this.$emit('notify', 'Signed up successfully. Please sign in with  your credentials.')
-    // }
+    successCallback (data) {
+      // this.$emit('notify', 'Signed up successfully. Please sign in with  your credentials.')
+      this.$router.push({name: 'Home'})
+    },
     wxcButtonClicked(e) {
       console.log(e);
     }
   },
   mounted() {
+    // console.log(this.$refs.kl)
     if (this.$store.state.user) {
       this.$router.push({ path: "/" });
     }
@@ -63,9 +64,7 @@ export default {
 </script>
 
 <style>
-#wipt_0,
-#wipt_1,
-#wipt_2 {
+.weex-input {
   border: solid 1px black;
   margin: 0.61rem;
   height: 1rem;
