@@ -1,61 +1,26 @@
 <template>
   <div class="signup">
-    <!-- <vue-form :fields="fields" :action="endpoint()" @success="successCallback"> -->
-      <!-- <template slot="form-fields" slot-scope="form"> -->
-        <div>
-          <!-- <b-notification type="is-danger"
-                          v-bind:class="form.errors.get('non_field_errors') ? 'is-danger': null"
-                          v-if="form.errors.get('non_field_errors')">
-            {{ form.errors.get('non_field_errors') }}
-          </b-notification> -->
-          <!-- <input
-            :type="form.errors.get('full_name') ? 'is-danger': null"
-            :message="form.errors.get('full_name')"
-          > -->
-          <!-- <input type="text" name="full_name" required> -->
-          <input type="text" placeholder="Full Name" :autofocus=true value="" />
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="password" name="password" placeholder="Password" required>
+    <vue-form :fields="fields" :action="endpoint()" @success="successCallback">
+      <template slot="form-fields" slot-scope="form">
+     
+          <input placeholder="Full Name" :type="form.errors.get('full_name') ? 'is-danger': null"
+            :message="form.errors.get('full_name')" v-model="fields.full_name" :autofocus=true value="" />
+          <input :type="form.errors.get('email') ? 'is-danger': null"
+            :message="form.errors.get('email')" name="email" placeholder="Email" v-model="fields.email" required>
+          <input :type="form.errors.get('password') ? 'is-danger': null"
+            :message="form.errors.get('password')" name="password" placeholder="Password" v-model="fields.password" required>
           <!-- <text class="button" onclick='Submit'>Sign Up</text> -->
+           <div class="" slot="submit control">
           <wxc-button text="Sign Up"
-              @wxcButtonClicked="wxcButtonClicked"></wxc-button>
+              @wxcButtonClicked="wxcButtonClicked">
+              </wxc-button>
+              </div>
           <div class="login-message">
             <p>Already registered?<router-link><text>Sign In.</text></router-link></p>
           </div>
-            <!-- <b-input
-              v-model="fields.full_name"
-              placeholder="Full Name"
-            >
-            </b-input>
-          </b-field>
-          <b-field
-            :type="form.errors.get('email') ? 'is-danger': null"
-            :message="form.errors.get('email')"
-          >
-            <b-input type="email"
-                     v-model="fields.email"
-                     placeholder="Email"
-            >
-            </b-input>
-          </b-field>
-          <b-field
-            :type="form.errors.get('password') ? 'is-danger': null"
-            :message="form.errors.get('password')"
-          >
-            <b-input type="password"
-                     placeholder="Password"
-                     v-model="fields.password"
-                     password-reveal>
-            </b-input>
-          </b-field>
-          <div class="form-button has-text-centered" slot="submit control">
-            <b-field>
-              <button class="custom-button button is-uppercase is-primary">Sign Up</button>
-            </b-field>
-          </div> -->
-        </div>
-      <!-- </template> -->
-    <!-- </vue-form> -->
+
+      </template>
+    </vue-form>
   </div>
 </template>
 
@@ -72,7 +37,7 @@ export default {
     };
   },
   components: { WxcButton },
-  //   mixins: [Form, Helper],
+  mixins: [Form, Helper],
   endpoint: "users/create/",
   methods: {
     // snackbar () {
