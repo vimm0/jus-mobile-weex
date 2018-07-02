@@ -2,23 +2,29 @@
   <div class="signup">
     <vue-form :fields="fields" :action="endpoint()" @success="successCallback">
       <template slot="form-fields" slot-scope="form">
-     
-          <input placeholder="Full Name" :type="form.errors.get('full_name') ? 'is-danger': null"
-            :message="form.errors.get('full_name')" v-model="fields.full_name" :autofocus=true value="" />
-          <input :type="form.errors.get('email') ? 'is-danger': null"
-            :message="form.errors.get('email')" name="email" placeholder="Email" v-model="fields.email" required>
-          <input :type="form.errors.get('password') ? 'is-danger': null"
-            :message="form.errors.get('password')" name="password" placeholder="Password" v-model="fields.password" required>
-          <!-- <text class="button" onclick='Submit'>Sign Up</text> -->
-           <div class="" slot="submit control">
+            <text :type="form.errors.get('full_name') ? 'is-danger': null"
+            :message="form.errors.get('full_name')"></text>
+          <input type="text" placeholder="Full Name" :autofocus=true v-model="fields.full_name" class="input"/>
+           <text :type="form.errors.get('email') ? 'is-danger': null"
+        :message="form.errors.get('email')"></text>
+          <input type="email" placeholder="Email" :autofocus=true v-model="fields.email" class="input"/>
+        <text :type="form.errors.get('password') ? 'is-danger': null"
+        :message="form.errors.get('password')"></text>
+          <input type="password" placeholder="Password" class="input" v-model="fields.password"/>
+        <div class="form-button has-text-centered" slot="submit control">
+          <!-- <button >Sign Up</button> -->
           <wxc-button text="Sign Up"
-              @wxcButtonClicked="wxcButtonClicked">
+              @wxcButtonClicked="wxcButtonClicked" style="text-align:center;margin: 0.25rem;">
+              </wxc-button>
+        </div>
+           <!-- <div class="" slot="submit control">
+          <wxc-button text="Sign Up"
+              @wxcButtonClicked="wxcButtonClicked" style="text-align:center;margin: 0.25rem;">
               </wxc-button>
               </div>
           <div class="login-message">
-            <p>Already registered?<router-link><text>Sign In.</text></router-link></p>
-          </div>
-
+            <p style="text-align:center;">Already registered?Sign In.</p>
+          </div> -->
       </template>
     </vue-form>
   </div>
@@ -40,9 +46,7 @@ export default {
   mixins: [Form, Helper],
   endpoint: "users/create/",
   methods: {
-    // snackbar () {
-    //   this.$snackbar.open('Signed up successfully. Please sign in with  your credentials.')
-    // },
+
     // successCallback (data) {
     //   this.$emit('notify', 'Signed up successfully. Please sign in with  your credentials.')
     // }
