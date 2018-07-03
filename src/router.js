@@ -2,6 +2,7 @@
 import Router from 'vue-router'
 // import WebView from '@/components/WebView'
 import Home from '@/components/Home'
+import VideoList from '@/components/app/video/VideoList'
 import ExternalVideoDetail from '@/components/app/video/detail/ExternalVideoDetail'
 import LocalVideoDetail from '@/components/app/video/detail/LocalVideoDetail'
 import WatchList from '@/components/app/video/feature/WatchList'
@@ -30,7 +31,8 @@ module.exports = new Router({
         {
             path: '/',
             name: 'Home',
-            component: Home
+            component: Home,
+            redirect: '/video'
         },
         {
             path: '/signup',
@@ -43,12 +45,17 @@ module.exports = new Router({
             component: SignIn
         },
         {
-            path: '/:slugId',
+            path: '/video',
+            name: 'VideoList',
+            component: VideoList
+        },
+        {
+            path: ':slugId',
             name: 'External Video Detail',
             component: ExternalVideoDetail
         },
         {
-            path: '/:slugId',
+            path: ':slugId',
             name: 'Local Video Detail',
             component: LocalVideoDetail
         },

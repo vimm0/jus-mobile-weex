@@ -1,5 +1,11 @@
 <template>
     <div class="wrapper">
+              <template v-if="checkUserLogin()">
+
+      <header style="background:#fff;">
+        <layout></layout>
+      </header>
+              </template>
        <router-view/>
     </div>
 </template>
@@ -11,7 +17,7 @@ import axios from "axios";
 import config from "../configs/config";
 import Vue from "vue";
 import Helper from "./mixins/Helper";
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters } from "vuex";
 
 export default {
   name: "App",
