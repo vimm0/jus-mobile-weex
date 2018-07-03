@@ -1,23 +1,23 @@
 <template>
     <div class="payment-card-registration">
-        <p class="card-header-title is-size-5">My Cards</p>
+        <p class="card-header-title">My Cards</p>
         <template v-if="$store.state.user.user.has_expired === 'Admin does not expires at all.'">
             <div class="card-content">
                 <p class="has-text-success">Admin does not need card at all.</p>
             </div>
         </template>
         <template v-else>
-            <div class="card-content">
-                <text class="is-danger" v-if="error">
+            <div class="">
+                <text class="" v-if="error">
                   There's been an issue regarding your card. <br/> {{ error }} <br/> Please use use another card or update the
                   card info.
                 </text>
                 <div ref="card"></div>
-                <p class="has-text-centered is-danger">{{ validationError }}</p>
-                <button v-on:click="purchase" class="custom-button button is-success is-outlined">Add A New Card
+                <p class=" ">{{ validationError }}</p>
+                <button v-on:click="purchase" class="button">Add A New Card
                 </button>
-                <hr v-if="cards.length > 0">
-                <h2 class="title is-5" v-if="cards.length > 0">All Cards</h2>
+                <!--<hr v-if="cards.length > 0">-->
+                <h2 class="title" v-if="cards.length > 0">All Cards</h2>
                 <div v-for="customer_obj in customer" :key="customer_obj.id">
                     <div class="card list-card" v-for="card in cards" :key="card.id">
                         <section>
@@ -26,13 +26,13 @@
                             </p>
                             <div class="card-action">
                                 <template v-if="customer_obj.default_source === card.stripe_id">
-                                    <span class="tag is-success">✓ Active</span>
+                                    <span class="tag">✓ Active</span>
                                 </template>
                             </div>
                             <a class="card-header-icon">
-                                <b-icon
-                                        :icon="isOpen ? 'fas fa-chevron-down' : 'fas fa-chevron-up'">
-                                </b-icon>
+                                <!--<b-icon-->
+                                        <!--:icon="isOpen ? 'fas fa-chevron-down' : 'fas fa-chevron-up'">-->
+                                <!--</b-icon>-->
                             </a>
                             <div class="card-content">
                                 <div class="content">
@@ -42,11 +42,11 @@
                                     <p>Number: ****{{card.last4}}</p>
                                 </div>
                                 <template v-if="customer_obj.default_source !== card.stripe_id">
-                                    <button class="button is-small is-primary"
+                                    <button class="button"
                                             @click="changeDefaultCard(card.id, card.stripe_id)">
                                         Make Default
                                     </button>
-                                    <button class="button is-small is-danger" @click="removeCard(card.id)">Remove
+                                    <button class="button" @click="removeCard(card.id)">Remove
                                     </button>
                                 </template>
                             </div>
@@ -229,39 +229,39 @@
      * The CSS shown here will not be introduced in the Quickstart guide, but shows
      * how you can use CSS to style your Element's container.
      */
-    .StripeElement {
-        background-color: white;
-        padding: 2px 6px;
-        border-radius: 4px;
-        border: 1px solid #d2d2d2;
-        box-shadow: 0 1px 3px 0 #e6ebf1;
-        -webkit-transition: box-shadow 150ms ease;
-        transition: box-shadow 150ms ease;
-    }
+    /*.StripeElement {*/
+        /*background-color: white;*/
+        /*padding: 2px 6px;*/
+        /*border-radius: 4px;*/
+        /*border: 1px solid #d2d2d2;*/
+        /*box-shadow: 0 1px 3px 0 #e6ebf1;*/
+        /*-webkit-transition: box-shadow 150ms ease;*/
+        /*transition: box-shadow 150ms ease;*/
+    /*}*/
 
-    .StripeElement--focus {
-        box-shadow: 0 1px 3px 0 #cfd7df;
-    }
+    /*.StripeElement--focus {*/
+        /*box-shadow: 0 1px 3px 0 #cfd7df;*/
+    /*}*/
 
-    .StripeElement--invalid {
-        border-color: #fa755a;
-    }
+    /*.StripeElement--invalid {*/
+        /*border-color: #fa755a;*/
+    /*}*/
 
-    .StripeElement--invalid .is-danger {
-        color: #de4425;
-        font-size: 15px;
-        margin-top: 6px;
-    }
+    /*.StripeElement--invalid .is-danger {*/
+        /*color: #de4425;*/
+        /*font-size: 15px;*/
+        /*margin-top: 6px;*/
+    /*}*/
 
-    .StripeElement--webkit-autofill {
-        background-color: #fefde5 !important;
-    }
+    /*.StripeElement--webkit-autofill {*/
+        /*background-color: #fefde5 !important;*/
+    /*}*/
 
-    .card-action {
-        margin-top: 12px;
-    }
+    /*.card-action {*/
+        /*margin-top: 12px;*/
+    /*}*/
 
-    .list-card .card {
-        background: #f4f7fb;
-    }
+    /*.list-card .card {*/
+        /*background: #f4f7fb;*/
+    /*}*/
 </style>

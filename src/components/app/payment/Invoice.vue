@@ -1,9 +1,9 @@
 <template>
   <div id='payment'>
-    <p class="card-header-title is-size-5">Payment History</p>
+    <p class="card-header-title">Payment History</p>
     <template v-if="$store.state.user.user.has_expired === 'Admin does not expires at all.'">
       <div class="card-content">
-        <p class="has-text-success">Admin does not have Invoice history</p>
+        <p>Admin does not have Invoice history</p>
       </div>
     </template>
     <template v-else>

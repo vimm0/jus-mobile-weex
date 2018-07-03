@@ -2,30 +2,29 @@
     <div id='payment'>
         <!-- <b-collapse class="card"> -->
         <!-- <div slot="trigger" slot-scope="props" class="card-header"> -->
-        <p class="card-header-title is-size-5">Subscription Information</p>
+        <p class="card-header-title">Subscription Information</p>
         <!-- </div> -->
         <template v-if="$store.state.user.user.has_expired === 'Admin does not expires at all.'">
             <div class="card-content">
-                <p class="has-text-success">Admin does not need subscription at all.</p>
+                <p>Admin does not need subscription at all.</p>
             </div>
         </template>
         <template v-else>
             <div class="card-content">
                 <template v-if="$store.state.user.user.is_expire === false">
 
-                    <div class="notification is-warning">
+                    <div class="notification">
                         Is On Trial Until <strong>{{ $store.state.user.user.has_expired }}</strong>
                     </div>
 
                 </template>
                 <template v-if="isSubscriptionActive && !subscriptionEnds && !problemInSubscription">
                     <template v-if="subscription[0].status === 'trialing'">
-                        <p><span
-                                class="has-text-success">{{ verboseTrialStatus(subscription[0].trial_start, subscription[0].trial_end)
+                        <p><span>{{ verboseTrialStatus(subscription[0].trial_start, subscription[0].trial_end)
                             }} Days left </span> on {{ $options.filters.capitalizeText(subscription[0].status)
                             }} Subscription</p>
                     </template>
-                    <h2 class="title is-4">✓ {{ $options.filters.capitalizeText(subscription[0].status)
+                    <h2 class="title">✓ {{ $options.filters.capitalizeText(subscription[0].status)
                         }} Subscription</h2>
                     <!-- <div v-for="obj in subscription">
                       <template v-if="obj.cancel_at_period_end">
@@ -132,7 +131,7 @@
                                 <div class="field-label">
                                 </div>
                                 <div class="field-body">
-                                    <button @click="subscribe" class="button is-success is-outlined">Start Subscription
+                                    <button @click="subscribe" class="button">Start Subscription
                                     </button>
                                 </div>
                             </div>

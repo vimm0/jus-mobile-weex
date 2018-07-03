@@ -29,7 +29,7 @@
             WatchList
         },
         mixins: [Helper],
-        mounted () {
+        mounted() {
             console.log(this.$route.name)
         }
     }

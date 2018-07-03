@@ -10,6 +10,7 @@
     "build:prod": "webpack --env.NODE_ENV=production",
     "build:prod:web": "webpack --env.NODE_ENV=release",
     "build:plugin": "webpack --env.NODE_ENV=plugin",
+    "copy:android": "cp dist/index.weex.js platforms/android/app/src/main/assets/index.js",
     "clean:web": "rimraf ./release/web",
     "clean:ios": "rimraf ./release/ios",
     "clean:android": "rimraf ./release/android",
