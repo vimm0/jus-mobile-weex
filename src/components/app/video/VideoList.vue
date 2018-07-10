@@ -57,7 +57,7 @@
     }
 </style>
 <script>
-    import Collection from '../../Collection/Collection'
+    import Collection from '../../Collection/Collection.vue'
     import Helper from '../../../mixins/Helper'
 
     export default {

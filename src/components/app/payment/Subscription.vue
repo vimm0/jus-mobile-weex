@@ -197,7 +197,7 @@
     import Helper from '../../../mixins/Helper'
     import Form from '../../../mixins/Form.js'
     import {mapGetters} from 'vuex'
-    import DropDown from '../../UIComponent/DropDown'
+    import DropDown from '../../UIComponent/DropDown.vue'
 
     let stripe = Stripe(`pk_test_WDp74uo5iUtGPi9bGz2UnWag`)
     let elements = stripe.elements()

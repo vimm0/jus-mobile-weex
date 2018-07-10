@@ -1,18 +1,18 @@
 <template>
     <div class="wrapper">
-              <template v-if="checkUserLogin()">
-
-      <header style="background:#fff;">
-        <layout></layout>
-      </header>
-              </template>
-       <router-view/>
+              <!--<template v-if="checkUserLogin()">-->
+<p>kasjf</p>
+      <!--<header style="background:#fff;">-->
+        <!--<layout></layout>-->
+      <!--</header>-->
+              <!--</template>-->
+       <!--<router-view/>-->
     </div>
 </template>
 
 <script>
 // import Nav from './components/UIComponent/Nav.vue'
-import Layout from "./components/app/Layout.vue";
+//import Layout from "./components/app/Layout.vue";
 import axios from "axios";
 import config from "../configs/config";
 import Vue from "vue";
@@ -28,7 +28,7 @@ export default {
   },
   components: {
     // 'nav': Nav,
-    layout: Layout
+//    layout: Layout
   },
   mixins: [Helper],
   created() {

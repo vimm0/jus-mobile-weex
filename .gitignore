@@ -5,3 +5,6 @@ node_modules
 platforms
 release
 .vscode
+android/
+temp/
+package-lock.json

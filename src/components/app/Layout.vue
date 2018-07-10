@@ -103,17 +103,17 @@ module.exports = {
 };
 </script>
 <style>
-svg:not(:root).svg-inline--fa {
-  color: rgb(102, 102, 102);
-}
-.svg-inline--fa.fa-w-14 {
-  font-size: 0.6rem;
-  color: rgb(102, 102, 102);
-  font-family: weexUiIconFont;
-  font-size: 48px;
-  display: inline;
-  margin-right: 4rem;
-}
+/*svg:not(:root).svg-inline--fa {*/
+  /*color: rgb(102, 102, 102);*/
+/*}*/
+/*.svg-inline--fa.fa-w-14 {*/
+  /*font-size: 0.6rem;*/
+  /*color: rgb(102, 102, 102);*/
+  /*font-family: weexUiIconFont;*/
+  /*font-size: 48px;*/
+  /*display: inline;*/
+  /*margin-right: 4rem;*/
+/*}*/
 .navigation {
   display: inline;
 }
@@ -127,9 +127,9 @@ p.nav-route-name {
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
 }
-.weex-root p.nav-home-icon {
-  margin-right: -3.69rem;
-}
+/*.weex-root p.nav-home-icon {*/
+  /*margin-right: -3.69rem;*/
+/*}*/
 .nav-weex-icon {
   font-size: 48px;
   margin-right: 4rem;

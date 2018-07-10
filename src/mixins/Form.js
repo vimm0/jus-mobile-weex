@@ -1,4 +1,4 @@
-import VueForm from '@/components/Form/VueForm.vue'
+import VueForm from '../components/Form/VueForm.vue'
 
 // import VueForm from '@/helpers/components/form/VueForm.vue'
 
