@@ -30,7 +30,7 @@
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "chunk": "^0.0.2",
     "phantom-limb": "0.0.1",
     "style-loader": "^0.21.0",
